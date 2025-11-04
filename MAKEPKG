@@ -1,0 +1,16 @@
+pkgname=appgallerycli
+pkgver=1.0
+pkgrel=1
+pkgdesc="download apks from huawei appgallery"
+arch=('x86_64' 'aarch64')
+depends=('curl')
+source=("appgallerycli.c")
+sha256sums=('SKIP')
+
+build() {
+    gcc -o appgallerycli appgallerycli.c
+}
+
+package() {
+    install -Dm755 appgallerycli "$pkgdir/usr/bin/appgallerycli"
+}
